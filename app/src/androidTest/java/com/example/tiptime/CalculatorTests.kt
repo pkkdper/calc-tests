@@ -2,6 +2,7 @@ package com.example.tiptime
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -20,5 +21,7 @@ class CalculatorTests {
         onView(withId(R.id.cost_of_service_edit_text))
             .perform(typeText("50.00"))
             .perform(ViewActions.closeSoftKeyboard())
+        onView(withId(R.id.calculate_button))
+            .perform(click())
     }
 }
