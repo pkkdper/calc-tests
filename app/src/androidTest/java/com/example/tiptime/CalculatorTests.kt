@@ -1,6 +1,8 @@
 package com.example.tiptime
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -16,5 +18,7 @@ class CalculatorTests {
     @Test
     fun calculate_20_percent_tip(){
         onView(withId(R.id.cost_of_service_edit_text))
+            .perform(typeText("50.00"))
+            .perform(ViewActions.closeSoftKeyboard())
     }
 }
