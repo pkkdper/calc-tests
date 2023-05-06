@@ -1,5 +1,7 @@
 package com.example.tiptime
 
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Rule
@@ -12,5 +14,7 @@ class CalculatorTests {
     @get:Rule
     val activity = ActivityScenarioRule(MainActivity::class.java)
     @Test
-    fun calculate_20_percent_tip(){}
+    fun calculate_20_percent_tip(){
+        onView(withId(R.id.cost_of_service_edit_text))
+    }
 }
