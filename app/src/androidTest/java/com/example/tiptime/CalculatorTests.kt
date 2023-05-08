@@ -1,5 +1,7 @@
 package com.example.tiptime
 
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
@@ -28,5 +30,27 @@ class CalculatorTests {
             .perform(click())
         onView(withId(R.id.tip_result))
             .check(matches(withText(containsString("$10.00"))))
+    }
+    fun calculate_18_percent_tip(){
+        onView(withId(R.id.option_eighteen_percent))
+            .perform(click())
+        onView(withId(R.id.cost_of_service_edit_text))
+            .perform(typeText("50.00"))
+            .perform(ViewActions.closeSoftKeyboard())
+        onView(withId(R.id.calculate_button))
+            .perform(click())
+        onView(withId(R.id.tip_result))
+            .check((matches(withText(containsString("$9")))))
+    }
+    fun calculate_15_percent_tip(){
+        onView(withId(R.id.option_fifteen_percent))
+            .perform(click())
+        onView(withId(R.id.cost_of_service_edit_text))
+            .perform(typeText("50.00"))
+            .perform(ViewActions.closeSoftKeyboard())
+        onView(withId(R.id.calculate_button))
+            .perform(click())
+        onView(withId(R.id.tip_result))
+            .check((matches(withText(containsString("$7.5")))))
     }
 }
